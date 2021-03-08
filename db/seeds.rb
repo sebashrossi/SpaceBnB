@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'Destroying all planets'
+Planet.destroy_all
+
+10.times  do
+  Planet.create!(name: 'Andrew', description: 'Sucks', address: 'Andrew Sucks 123')
+  puts 'Creating planet....'
+end
