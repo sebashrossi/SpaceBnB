@@ -1,0 +1,9 @@
+<%= simple_form_for(@planet) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :price, label: "Price in Galactic Standard Credits per night" %>
+  <%= f.input :guest_limit %>
+  <%= f.input :photo, input_html: { class: 'd-none'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+  <%= f.button :submit, class: 'btn btn-lg btn-primary btn-block mt-4' %>
+<% end %>
