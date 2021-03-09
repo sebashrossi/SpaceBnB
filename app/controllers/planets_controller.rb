@@ -1,6 +1,11 @@
 class PlanetsController < ApplicationController
   def index
-    @planets = Planet.take(6)
+    if params[:search].blank?
+      @planets = Planet.all
+    else
+      @params = params[:search]
+      @planets = Planet.all.where('name LIKE :search', search: @params)
+    end
   end
 
   def show

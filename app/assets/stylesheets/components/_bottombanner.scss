@@ -1,0 +1,23 @@
+.bottom-banner {
+  background-image: url('https://free4kwallpapers.com/uploads/originals/2020/07/01/-astronaut-floating-space-wallpaper.jpg');
+  background-size: center;
+  background-attachment: fixed;
+  background-position: 0px 80px;
+  padding: 150px;
+}
+
+.bottom-body {
+  h2, h4 {
+    font-family: 'Lato', sans-serif;
+  }
+
+  a {
+    color: #FF3DBB;
+    border: 1px solid #FF3DBB;
+    &:hover {
+      color: black;
+      background-color: #FF3DBB;
+      border-color: $cool-pink;
+    }
+  }
+}
