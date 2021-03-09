@@ -1,4 +1,14 @@
-.container-info {
-  width: 1100px;
-  margin: 0 auto;
+$form_percentage: 25%;
+
+.booking-form {
+  border: 1px solid white;
+  border-radius: 4px;
+  width: $form_percentage;
 }
+
+.planet-specifics {
+  width: calc(100% - #{$form_percentage});
+  padding: 20px;
+  padding-right: 70px;
+}
+
