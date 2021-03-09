@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'planets#index'
+  root to: 'pages#home'
+  get '/results', to: 'pages#results', as: :results
   resources :planets
 end

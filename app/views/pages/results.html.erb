@@ -1,0 +1,22 @@
+<% @results.each do |result|  %>
+  <div class="planet-card">
+      <%= result.name %>
+      <%= result.address %>
+    </div>
+    <div class="portfolio-effect">
+      <div class="portfolio-item portfolio-effect__item portfolio-item--eff1">
+        <img class="portfolio-item__image" src="https://cdn.wallpapersafari.com/82/3/mPLh4E.jpg" alt="Portfolio Item" width="826" height="551">
+        <div class="portfolio-item__info">
+          <h3 class="portfolio-item__header"><%= result.description %></h3>
+          <div class="portfolio-item__links">
+            <div class="portfolio-item__link-block">
+              <%= result.guest_limit %>
+            </div>
+            <div class="portfolio-item__link-block">
+              <%= result.price %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

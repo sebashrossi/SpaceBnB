@@ -1,2 +1,56 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="nav">
+  </div>
+  <div class="jumbo">
+    <h1>Get some space.</h1>
+    <div class="search-bar">
+      <%= form_tag(results_path, :method => "get",
+    class: 'navbar-form navbar-left') do %>
+  <div class="input-group">
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+    <div class="input-group-btn">
+      <%= button_tag "", :class => 'btn btn-outline-success',:name => nil do %>
+      <i class="fas fa-search"></i>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+    </div>
+  </div>
+</div>
+<div class="middle-section">
+  <h2>Featured planets</h2>
+  <div class='cards'>
+    <% @planets.each do |planet| %>
+    <div class="planet-card">
+      <%= planet.name %>
+      <%= planet.address %>
+    </div>
+    <div class="portfolio-effect">
+      <div class="portfolio-item portfolio-effect__item portfolio-item--eff1">
+        <img class="portfolio-item__image" src="https://cdn.wallpapersafari.com/82/3/mPLh4E.jpg" alt="Portfolio Item" width="826" height="551">
+        <div class="portfolio-item__info">
+          <h3 class="portfolio-item__header"><%= planet.description %></h3>
+          <div class="portfolio-item__links">
+            <div class="portfolio-item__link-block">
+              <%= planet.guest_limit %>
+            </div>
+            <div class="portfolio-item__link-block">
+              <%= planet.price %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="bottom-banner">
+  <div class="bottom-body">
+    <h2>A whole new world.</h2>
+    <h4>Get Jafar away</h4>
+    <a href="/planets/new" class="btn btn-outline-success">Become a host!</a>
+  </div>
+</div>
+<div class="footer">
+</div>
