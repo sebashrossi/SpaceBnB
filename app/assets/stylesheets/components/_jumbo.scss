@@ -1,0 +1,25 @@
+.input-group {
+  width: 40%;
+}
+
+.jumbo h1 {
+  font-size: 55px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  margin-bottom: 30px;
+
+}
+.jumbo {
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.searchB {
+    color: #FF3DBB;
+    border: 1px solid #FF3DBB;
+    &:hover {
+      color: black;
+      background-color: #FF3DBB;
+    }
+}
