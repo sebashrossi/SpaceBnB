@@ -1,3 +1,23 @@
+.banner_show {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner_show h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner_show p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
 .banner {
   background-image: url('https://images4.alphacoders.com/936/thumb-1920-936378.jpg');
   object-fit: cover;
@@ -7,4 +27,5 @@
 
 .jumbo {
   padding: 200px;
+
 }
