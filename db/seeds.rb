@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Destroying all planets'
 Planet.destroy_all
-
+User.destroy_all
+  user = User.create!(email: 'blabla@gmail.com', password: '123456')
 10.times  do
-  Planet.create!(name: 'Andrew', description: 'Sucks', address: 'Andrew Sucks 123')
+  Planet.create!(name: 'Andrew', description: 'Sucks', address: 'Andrew Sucks 123', user_id: user.id)
   puts 'Creating planet....'
 end
