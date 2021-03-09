@@ -1,4 +1,4 @@
-class BookingController < ApplicationController
+class BookingsController < ApplicationController
   def index
   end
 
@@ -30,6 +30,6 @@ class BookingController < ApplicationController
   private
 
   def booking_params
-    require(:booking).permit(start_date:, end_date:)
+    require(:booking).permit(:start_date, :end_date)
   end
 end
