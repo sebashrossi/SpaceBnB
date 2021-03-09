@@ -1,1 +1,46 @@
+<!-- banner -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random);">
+  <!-- <div class="container"> -->
+    <!-- <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1> -->
+    <!-- <p>Change your life and learn to code at one of our campuses around the world.</p> -->
+    <!-- <a class="btn btn-flat" href="#">Apply now</a> -->
+  <!-- </div> -->
+</div>
 
+<div class="container">
+
+  <div class="d-flex">
+
+  <!-- left title and description  -->
+    <div class="planet-specifics">
+
+      <div class="planet-title">
+        <h2> <%= @planet.name %> </h2>
+      </div>
+
+      <!-- div with both avatar and name of the owner of the planet -->
+      <div class="d-flex">
+
+        <div class="avatar-img">
+          <%= image_tag "https://source.unsplash.com/random", class: "avatar", alt: "avatar" %>
+        </div>
+
+        <div class="planet-owner">
+          <h3> <%= User.find(@planet.user_id).email %> </h3>
+        </div>
+
+      </div>
+
+      <div class="planet-description">
+        <p><%= @planet.description %></p>
+      </div>
+
+    </div>
+
+    <!-- Form to make a booking -->
+    <!-- <div class="booking-form"> -->
+      <!-- # <%= #render 'new_booking' %> -->
+    <!-- </div> -->
+
+  </div>
+</div>
