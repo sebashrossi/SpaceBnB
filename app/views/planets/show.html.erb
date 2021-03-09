@@ -7,16 +7,12 @@
   </div>
 </div>
 
-<div class="container-info mt-3">
+<div class="container mt-5">
 
-  <div class="d-flex justify-content-between mx-3">
+  <div class="d-flex">
 
   <!-- left title and description  -->
     <div class="planet-specifics">
-
-      <div class="planet-title">
-        <h2> <%= @planet.name %> </h2>
-      </div>
 
       <!-- div with both avatar and name of the owner of the planet -->
       <div class="d-flex">
@@ -25,13 +21,13 @@
           <%= image_tag "https://source.unsplash.com/random", class: "avatar", alt: "avatar" %>
         </div>
 
-        <div class="planet-owner px-3">
+        <div class="planet-owner px-3 py-2">
           <h3> <%= User.find(@planet.user_id).email %> </h3>
         </div>
 
       </div>
 
-      <div class="planet-description">
+      <div class="planet-description py-3 text-justify">
         <p><%= @planet.description %></p>
       </div>
 
