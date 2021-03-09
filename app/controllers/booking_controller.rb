@@ -6,9 +6,16 @@ class BookingController < ApplicationController
   end
 
   def new
+    @booking = Booking.new
   end
 
   def create
+    @booking = Booking.new(booking_params)
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -18,5 +25,11 @@ class BookingController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def booking_params
+    require(:booking).permit(start_date:, end_date:)
   end
 end

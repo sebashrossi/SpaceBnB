@@ -9,7 +9,7 @@ puts 'Destroying all planets'
 Planet.destroy_all
 User.destroy_all
   user = User.create!(email: 'blabla@gmail.com', password: '123456')
-10.times  do
-  Planet.create!(name: 'Andrew', description: 'Sucks', address: 'Andrew Sucks 123', user_id: user.id)
+1.times  do
+  Planet.create!(name: 'Mars', description: 'red', address: '123 mars avenue', user_id: user.id, price: 100, guest_limit: 1_000_000)
   puts 'Creating planet....'
 end
