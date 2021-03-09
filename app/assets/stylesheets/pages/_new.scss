@@ -2,10 +2,16 @@
   border-radius: 8px;
 }
 .upload-photo {
-  border: 1px solid #d3d3d3;
   padding: 16px 24px;
   cursor: pointer;
   font-weight: 500;
-  background: black;
+  background: #FF3DBB;
   border-radius: 2px;
+}
+.btn-primary {
+  background-color: #FF3DBB;
+  border: none;
+  &:hover {
+    background-color: #FF3DBB;
+  }
 }
