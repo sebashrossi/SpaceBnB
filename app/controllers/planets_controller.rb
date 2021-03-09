@@ -4,6 +4,7 @@ class PlanetsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @planet = Planet.find(params[:id])
   end
 

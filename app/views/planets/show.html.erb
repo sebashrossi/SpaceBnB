@@ -1,15 +1,15 @@
 <!-- banner -->
 <div class="banner_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random);">
-  <!-- <div class="container"> -->
-    <!-- <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1> -->
+  <div class="container">
+    <h1> <%= @planet.name %></h1>
     <!-- <p>Change your life and learn to code at one of our campuses around the world.</p> -->
     <!-- <a class="btn btn-flat" href="#">Apply now</a> -->
-  <!-- </div> -->
+  </div>
 </div>
 
-<div class="container">
+<div class="container-info mt-3">
 
-  <div class="d-flex">
+  <div class="d-flex justify-content-between mx-3">
 
   <!-- left title and description  -->
     <div class="planet-specifics">
@@ -25,7 +25,7 @@
           <%= image_tag "https://source.unsplash.com/random", class: "avatar", alt: "avatar" %>
         </div>
 
-        <div class="planet-owner">
+        <div class="planet-owner px-3">
           <h3> <%= User.find(@planet.user_id).email %> </h3>
         </div>
 
@@ -35,12 +35,19 @@
         <p><%= @planet.description %></p>
       </div>
 
+      <div>
+      <%# number of guests guest on font awesome plus integer  %>
+      </div>
+       <div>
+      <%# price per night plus imperial credits %>
+      </div>
+
     </div>
 
     <!-- Form to make a booking -->
-    <!-- <div class="booking-form"> -->
-      <!-- # <%= #render 'new_booking' %> -->
-    <!-- </div> -->
+    <div class="booking-form shadow-sm p-3">
+      <%= render 'bookings/new' %>
+    </div>
 
   </div>
 </div>
