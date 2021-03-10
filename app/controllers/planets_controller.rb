@@ -11,7 +11,7 @@ class PlanetsController < ApplicationController
       {
         lat: planet.latitude,
         lng: planet.longitude,
-        image_url: helpers.asset_url('portal')
+        image_url: helpers.asset_url('portal.png')
       }
     end
   end

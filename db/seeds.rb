@@ -12,6 +12,7 @@ puts 'Destroying all planets'
 Planet.destroy_all
 puts 'Destroying all users'
 User.destroy_all
+planetPics = ['https://upload.wikimedia.org/wikipedia/commons/a/a7/PIA19833-RockyExoplanet-HD219134b-ArtistConcept-20150730.jpg', 'https://www.slashgear.com/wp-content/uploads/2013/07/hubble_hd_189733b_gas_giant_glass_planet.png']
 20.times  do
   countries = ['New York', 'Paris', 'Seoul', 'London', 'Tokyo', 'Beijing', 'Seattle']
   user = User.create!(email: Faker::Internet.email, password: '123456')
