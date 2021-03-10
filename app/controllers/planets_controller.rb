@@ -4,7 +4,7 @@ class PlanetsController < ApplicationController
       @planets = Planet.all
     else
       @params = params[:search]
-      @planets = Planet.all.where('name LIKE :search', search: @params)
+      @planets = Planet.all.where('address LIKE :search', search: @params)
     end
   end
 

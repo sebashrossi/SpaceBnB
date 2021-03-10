@@ -1,3 +1,4 @@
+<%= render '/layouts/navbar' %>
 <div class="banner">
   <div class="nav">
   </div>
@@ -25,31 +26,44 @@
 <div class="middle-section">
   <div class="container">
   <h2>Featured planets</h2>
-  <div class='row'>
-    <% @planets.each do |planet| %>
-    <div class="col-4">
-    <div class="portfolio-effect">
-      <div class="portfolio-item portfolio-effect__item portfolio-item--eff1">
-        <img class="portfolio-item__image" src="https://cdn.wallpapersafari.com/82/3/mPLh4E.jpg" alt="Portfolio Item" width="826" height="551">
-        <div class="portfolio-item__info">
-          <h3 class="portfolio-item__header"><%= planet.name %></h3>
-          <div class="portfolio-item__links">
-            <div class="portfolio-item__link-block">
-              <%= planet.guest_limit %>
-            </div>
-            <div class="portfolio-item__link-block">
-              <%= planet.price %>
-            </div>
-          </div>
-          <%= link_to 'See more', planet_path(planet) %>
-        </div>
-      </div>
-    </div>
-    </div>
-    <% end %>
+  <!-- CAROUSEL -->
+    <%= render '/pages/carousel' %>
+
+  <!-- PORTALS -->
+    <h2>Popular portal locations</h2>
+  <div class="container-portal">
+  <div class="box">
+    <img src="https://static.dezeen.com/uploads/2019/11/gate-of-bright-lights-space-popular-seoul-kyung-roh-_dezeen_2364_hero_a.jpg">
+    <span>Seoul</span>
   </div>
+  <div class="box">
+    <img src="https://img.jakpost.net/c/2019/03/28/2019_03_28_68770_1553785260._medium.jpg">
+    <span>Paris</span>
+  </div>
+  <div class="box">
+    <img src="https://pbs.twimg.com/media/DveLrzcUYAADG9Z.jpg">
+    <span>New York</span>
+  </div>
+  <div class="box">
+    <img src="https://cdn130.picsart.com/263943690013202.jpg">
+    <span>Beijing</span>
+  </div>
+   <div class="box">
+    <img src="https://i.pinimg.com/originals/e3/58/12/e3581267cd7d03a99dcca40dac4d04d2.jpg">
+    <span>London</span>
+  </div>
+   <div class="box">
+    <img src="https://www.westernjournal.com/wp-content/uploads/2021/01/Picture-6.jpg">
+    <span>Seattle</span>
+  </div>
+   <div class="box">
+    <img src="https://i.pinimg.com/originals/26/c5/08/26c5087118a47aa83b3ef71bc370912b.jpg">
+    <span>Tokyo</span>
   </div>
 </div>
+  </div>
+</div>
+
 <div class="bottom-banner">
   <div class="container">
   <div class="bottom-body">
