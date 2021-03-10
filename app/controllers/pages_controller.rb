@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @planets = Planet.first(6)
+    @planets = Planet.all
   end
 
   def results

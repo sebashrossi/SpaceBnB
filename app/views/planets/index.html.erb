@@ -1,7 +1,15 @@
 <nav class="navbar fixed-top">
   <a class="navbar-brand" href="/">SpaceBnB <i class="fas fa-rocket" style="margin-top: 3px;"></i></a>
   <form class="form-inline">
-    <div class="search-bar w-100">
+    <% if user_signed_in? %>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <a class="my-2 my-sm-0 login" href="/users/sign_in">Log In</a>
+    <% end %>
+  </form>
+</nav>
+<div class="info">
+  <div class="search-bar">
       <%= form_tag(planets_path, :method => "get",
       class: 'navbar-form') do %>
       <div class="input-group">
@@ -14,12 +22,10 @@
       </div>
       <% end %>
     </div>
-    <a class="my-2 my-sm-0 login" href="/users/sign_in">Log In</a>
-  </form>
-</nav>
-<div class="info">
-<h6> <%= @planets.count %>+ portals </h6>
+    <div class="resultinfo">
+    <h6> <%= @planets.count %>+ portals </h6>
 <h4> Portals in "<%= params[:search] %>" </h4>
+    </div>
 </div>
 <div class="container-flex d-flex">
   <div class="results-bar">
