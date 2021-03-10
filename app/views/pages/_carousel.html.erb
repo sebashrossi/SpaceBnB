@@ -3,22 +3,22 @@
     <div class="carousel-item active">
       <img src="https://www.itl.cat/pngfile/big/12-127682_1080p-wallpaper-space-85897-outer-space-pc-background.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Aliquam, porro sequi laborum cumque consequatur totam minus quae nesciunt sint in autem nemo molestias. Maxime veritatis quos distinctio velit nisi fuga. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et enim quaerat reiciendis accusamus, natus cum maiores, voluptatem quod explicabo expedita sunt. Corrupti esse aut natus, veritatis maxime rem! Neque, minus.</p>
+        <h2><%= @planets.first.name %></h2>
+        <p><%= @planets.first.description %></p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="https://i.pinimg.com/originals/18/27/26/18272626c9d0e8d194bcde66ec3e2806.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+        <h2><%= @planets[1].name %></h2>
+        <p><%= @planets[1].description %></p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="https://wallpapercave.com/wp/wp2248745.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
+        <h2><%= @planets[2].name %></h2>
+        <p><%= @planets[2].description %></p>
       </div>
     </div>
   </div>

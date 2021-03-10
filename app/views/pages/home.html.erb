@@ -4,72 +4,84 @@
   </div>
   <div class="jumbo">
     <div class="container">
-    <div class="banner-text">
-    <h1>Get some space.</h1>
-    <div class="search-bar">
-      <%= form_tag(planets_path, :method => "get",
-      class: 'navbar-form navbar-left') do %>
-      <div class="input-group">
-        <%= search_field_tag :search, '', placeholder: "Search", class: "form-control" %>
-        <div class="input-group-btn">
-          <%= button_tag "", :class => 'btn searchB',:name => nil do %>
-          <i class="fas fa-search"></i>
+      <div class="banner-text">
+        <h1>Get some space.</h1>
+        <div class="search-bar">
+          <%= form_tag(planets_path, :method => "get",
+          class: 'navbar-form navbar-left') do %>
+          <div class="input-group">
+            <%= search_field_tag :search, '', placeholder: "Search", class: "form-control" %>
+            <div class="input-group-btn">
+              <%= button_tag "", :class => 'btn searchB',:name => nil do %>
+              <i class="fas fa-search"></i>
+              <% end %>
+            </div>
+          </div>
           <% end %>
         </div>
       </div>
-      <% end %>
     </div>
-  </div>
-  </div>
   </div>
 </div>
 <div class="middle-section">
   <div class="container">
-  <h2>Featured planets</h2>
-  <!-- CAROUSEL -->
+    <h2>Featured planets</h2>
+    <!-- CAROUSEL -->
     <%= render '/pages/carousel' %>
-
-  <!-- PORTALS -->
+    <!-- PORTALS -->
     <h2>Popular portal locations</h2>
-  <div class="container-portal">
-  <div class="box">
-    <img src="https://static.dezeen.com/uploads/2019/11/gate-of-bright-lights-space-popular-seoul-kyung-roh-_dezeen_2364_hero_a.jpg">
-    <span>Seoul</span>
-  </div>
-  <div class="box">
-    <img src="https://img.jakpost.net/c/2019/03/28/2019_03_28_68770_1553785260._medium.jpg">
-    <span>Paris</span>
-  </div>
-  <div class="box">
-    <img src="https://pbs.twimg.com/media/DveLrzcUYAADG9Z.jpg">
-    <span>New York</span>
-  </div>
-  <div class="box">
-    <img src="https://cdn130.picsart.com/263943690013202.jpg">
-    <span>Beijing</span>
-  </div>
-   <div class="box">
-    <img src="https://i.pinimg.com/originals/e3/58/12/e3581267cd7d03a99dcca40dac4d04d2.jpg">
-    <span>London</span>
-  </div>
-   <div class="box">
-    <img src="https://www.westernjournal.com/wp-content/uploads/2021/01/Picture-6.jpg">
-    <span>Seattle</span>
-  </div>
-   <div class="box">
-    <img src="https://i.pinimg.com/originals/26/c5/08/26c5087118a47aa83b3ef71bc370912b.jpg">
-    <span>Tokyo</span>
+    <div class="container-portal">
+      <div class="box">
+        <%= link_to planets_path do  %>
+          <img src="https://static.dezeen.com/uploads/2019/11/gate-of-bright-lights-space-popular-seoul-kyung-roh-_dezeen_2364_hero_a.jpg">
+        <% end %>
+        <span>Seoul</span>
+      </div>
+      <div class="box">
+        <%= link_to planets_path do  %>
+          <img src="https://img.jakpost.net/c/2019/03/28/2019_03_28_68770_1553785260._medium.jpg">
+        <% end %>
+        <span>Paris</span>
+      </div>
+      <div class="box">
+        <%= link_to planets_path do  %>
+          <img src="https://pbs.twimg.com/media/DveLrzcUYAADG9Z.jpg">
+        <% end %>
+        <span>NY</span>
+      </div>
+      <div class="box">
+        <%= link_to planets_path do  %>
+          <img src="https://cdn130.picsart.com/263943690013202.jpg">
+        <% end %>
+        <span>Beijing</span>
+      </div>
+      <div class="box">
+        <%= link_to planets_path do  %>
+          <img src="https://i.pinimg.com/originals/e3/58/12/e3581267cd7d03a99dcca40dac4d04d2.jpg">
+        <% end %>
+        <span>London</span>
+      </div>
+      <div class="box">
+        <%= link_to planets_path do  %>
+          <img src="https://www.westernjournal.com/wp-content/uploads/2021/01/Picture-6.jpg">
+        <% end %>
+        <span>Seattle</span>
+      </div>
+      <div class="box">
+        <%= link_to planets_path do  %>
+          <img src="https://i.pinimg.com/originals/26/c5/08/26c5087118a47aa83b3ef71bc370912b.jpg">
+        <% end %>
+        <span>Tokyo</span>
+      </div>
+    </div>
   </div>
 </div>
-  </div>
-</div>
-
 <div class="bottom-banner">
   <div class="container">
-  <div class="bottom-body">
-    <h2>A whole new world.</h2>
-    <h4>Get Jafar away</h4>
-    <a href="/planets/new" class="btn btn-outline-success">Become a host!</a>
-  </div>
+    <div class="bottom-body">
+      <h2>A whole new world.</h2>
+      <h4>Get Jafar away</h4>
+      <a href="/planets/new" class="btn btn-outline-success">Become a host!</a>
+    </div>
   </div>
 </div>
