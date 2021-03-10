@@ -32,15 +32,15 @@
 <% @planets.each do |planet| %>
     <div class="portfolio-effect">
       <div class="portfolio-item portfolio-effect__item portfolio-item--eff1">
-        <img class="portfolio-item__image" src="https://cdn.wallpapersafari.com/82/3/mPLh4E.jpg" alt="Portfolio Item" width="826" height="551">
+        <img class="portfolio-item__image" src="<%= cl_image_path planet.photo.key %>" alt="Portfolio Item" width="826" height="551">
         <div class="portfolio-item__info">
           <h3 class="portfolio-item__header"><%= planet.name %></h3>
           <div class="portfolio-item__links">
-            <div class="portfolio-item__link-block">
-              <%= planet.guest_limit %>
+            <div class="portfolio-item__link-block d-flex">
+              <i class="fas fa-user "></i><p><%= planet.guest_limit %></p>
             </div>
-            <div class="portfolio-item__link-block">
-              <%= planet.price %>
+            <div class="portfolio-item__link-block d-flex ml-3">
+              <i class="fab fa-galactic-republic "></i><p><%= planet.price %></p>
             </div>
           </div>
           <%= link_to "See more", planet_path(planet) %>
