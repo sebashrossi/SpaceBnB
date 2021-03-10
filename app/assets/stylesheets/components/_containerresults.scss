@@ -7,6 +7,14 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 25px;
   padding: 0 16px 0 16px;
+  i {
+    margin-right: 4px;
+    color: black;
+    line-height: 1.4;
+  }
+  p {
+    color: black;
+  }
 }
 
 #map {
