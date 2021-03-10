@@ -6,6 +6,14 @@ class PlanetsController < ApplicationController
       @params = params[:search]
       @planets = Planet.all.where('address LIKE :search', search: @params)
     end
+
+    @markers = @planets.geocoded.map do |planet|
+      {
+        lat: planet.latitude,
+        lng: planet.longitude,
+        image_url: helpers.asset_url('portal')
+      }
+    end
   end
 
   def show
