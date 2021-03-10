@@ -12,6 +12,44 @@
   background-color: #FF3DBB;
   border: none;
   &:hover {
-    background-color: #FF3DBB;
+    background-color: #aa2c7e;
   }
+}
+
+.login-main {
+  margin-top: 80px;
+  padding: 3rem 3rem;
+  border: 2px solid white;
+  border-radius: 40px;
+  margin-bottom: 280px;
+
+
+  h2 {
+    padding-bottom: 20px;
+  }
+
+  a {
+    color: #FF3DBB;
+  }
+
+  background-color: rgba(136, 134, 136, 0.487);
+}
+
+.signup-main {
+  margin-top: 80px;
+  padding: 3rem 3rem;
+  border: 2px solid white;
+  border-radius: 40px;
+  margin-bottom: 250px;
+
+
+  h2 {
+    padding-bottom: 20px;
+  }
+
+  a {
+    color: #FF3DBB;
+  }
+
+  background-color: rgba(136, 134, 136, 0.487);
 }
