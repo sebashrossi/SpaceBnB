@@ -1,12 +1,15 @@
 .new-form {
   border-radius: 8px;
+  background-color: rgba($color: #faebd7, $alpha: 0.3);
 }
 .upload-photo {
   padding: 16px 24px;
   cursor: pointer;
   font-weight: 500;
-  background: #FF3DBB;
-  border-radius: 2px;
+  background: rgba($color: #ffffff, $alpha: 1.0);
+  border-radius: 8px;
+  color: #FF3DBB;
+  border: 2px solid rgba($color: $cool-pink, $alpha: 1.0);
 }
 .btn-primary {
   background-color: #FF3DBB;
