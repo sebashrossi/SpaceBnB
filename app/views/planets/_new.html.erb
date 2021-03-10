@@ -1,3 +1,4 @@
+<div class="form">
 <%= simple_form_for(@planet) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
@@ -7,3 +8,4 @@
   <%= f.input :photo, input_html: { class: 'd-none'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
   <%= f.button :submit, class: 'btn btn-lg btn-primary btn-block mt-4' %>
 <% end %>
+</div>
