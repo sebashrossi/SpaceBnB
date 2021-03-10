@@ -1,5 +1,47 @@
-<h1>Andrew Sucks</h1>
+<nav class="navbar fixed-top">
+  <a class="navbar-brand" href="/">SpaceBnB <i class="fas fa-rocket" style="margin-top: 3px;"></i></a>
+  <form class="form-inline">
+    <div class="search-bar w-100">
+      <%= form_tag(planets_path, :method => "get",
+      class: 'navbar-form') do %>
+      <div class="input-group">
+        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+        <div class="input-group-btn">
+          <%= button_tag "", :class => 'btn searchB',:name => nil do %>
+          <i class="fas fa-search"></i>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <a class="my-2 my-sm-0 login" href="/users/sign_in">Log In</a>
+  </form>
+</nav>
+<div class="info">
+<h6> <%= @planets.count %>+ portals </h6>
+<h4> Portals in "<%= params[:search] %>" </h4>
+</div>
+<div class="container-flex d-flex">
+  <div class="results-bar">
 <% @planets.each do |planet| %>
-  <h1> <%= planet.name %> || <%= planet.description %> </h1>
-  <h2><%= planet.address %></h2>
-<% end %>
+    <div class="portfolio-effect">
+      <div class="portfolio-item portfolio-effect__item portfolio-item--eff1">
+        <img class="portfolio-item__image" src="https://cdn.wallpapersafari.com/82/3/mPLh4E.jpg" alt="Portfolio Item" width="826" height="551">
+        <div class="portfolio-item__info">
+          <h3 class="portfolio-item__header"><%= planet.name %></h3>
+          <div class="portfolio-item__links">
+            <div class="portfolio-item__link-block">
+              <%= planet.guest_limit %>
+            </div>
+            <div class="portfolio-item__link-block">
+              <%= planet.price %>
+            </div>
+          </div>
+          <%= link_to "See more", planet_path(planet) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+<img id="map" src='https://raw.githubusercontent.com/lewagon/layouts-demo/gh-pages/images/mapbox.png'>
+</div>
