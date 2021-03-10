@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 # Cloudinary
 gem 'devise'
 
+gem 'geocoder'
+
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 # Use Active Storage variant
