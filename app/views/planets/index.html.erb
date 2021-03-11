@@ -2,34 +2,34 @@
   <a class="navbar-brand" href="/">SpaceBnB <i class="fas fa-rocket" style="margin-top: 3px;"></i></a>
   <form class="form-inline">
     <% if user_signed_in? %>
-      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
     <% else %>
-      <a class="my-2 my-sm-0 login" href="/users/sign_in">Log In</a>
+    <a class="my-2 my-sm-0 login" href="/users/sign_in">Log In</a>
     <% end %>
   </form>
 </nav>
 <div class="info">
   <div class="search-bar">
-      <%= form_tag(planets_path, :method => "get",
-      class: 'navbar-form') do %>
-      <div class="input-group">
-        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
-        <div class="input-group-btn">
-          <%= button_tag "", :class => 'btn searchB',:name => nil do %>
-          <i class="fas fa-search"></i>
-          <% end %>
-        </div>
+    <%= form_tag(planets_path, :method => "get",
+    class: 'navbar-form') do %>
+    <div class="input-group">
+      <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+      <div class="input-group-btn">
+        <%= button_tag "", :class => 'btn searchB',:name => nil do %>
+        <i class="fas fa-search"></i>
+        <% end %>
       </div>
-      <% end %>
     </div>
-    <div class="resultinfo">
+    <% end %>
+  </div>
+  <div class="resultinfo">
     <h6> <%= @planets.count %>+ portals </h6>
-<h4> Portals in "<%= params[:search] %>" </h4>
-    </div>
+    <h4> Portals in "<%= params[:search] %>" </h4>
+  </div>
 </div>
-<div class="container-flex d-flex">
+<div class="container-flex d-flex position-relative">
   <div class="results-bar">
-<% @planets.each do |planet| %>
+    <% @planets.each do |planet| %>
     <div class="portfolio-effect">
       <div class="portfolio-item portfolio-effect__item portfolio-item--eff1">
         <img class="portfolio-item__image" src="<%= cl_image_path planet.photo.key %>" alt="Portfolio Item" width="826" height="551">
@@ -49,10 +49,10 @@
     </div>
     <% end %>
   </div>
-<!-- <img id="map" src='https://raw.githubusercontent.com/lewagon/layouts-demo/gh-pages/images/mapbox.png'> -->
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
+  <div class="position-sticky w-50" style="height: 100vh;">
+  <div id="map"
+    style="width: 100%; height: 100vh;"
+    data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
 </div>
