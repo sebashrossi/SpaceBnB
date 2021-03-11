@@ -1,35 +1,37 @@
 <%= render '/layouts/navbar' %>
 <% planet = Planet.find(@booking.planet_id) %>
-<% days = (Date.parse(@booking.end_date) - Date.parse(@booking.start_date)).to_f.truncate() %></p>
-<div class="banner_show" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("<%= cl_image_path planet.photo.key%>");'>
+<% days = (Date.parse(@booking.end_date) - Date.parse(@booking.start_date)).to_f.truncate() %>
+<div class="banner_show banner-down" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("<%= cl_image_path planet.photo.key%>");'>
   <div class="container">
     <h1>Your booking request to <%= planet.name %> for has been submited!</h1>
-    <!-- <p>Change your life and learn to code at one of our campuses around the world.</p> -->
-    <!-- <a class="btn btn-flat" href="#">Apply now</a> -->
   </div>
 </div>
+
 <div class="container justify-content-center text-center">
   <div>
-        <h3 class="booking-show-description-title"><%= planet.name %></h3>
   </div>
-    <div class="booking-specifics">
-      <div class="booking-specifics-guests d-flex">
+    <div class="booking-specifics pb-1" style="background-color: rgba(121, 121, 121, 0.474)">
+      <div class="booking-specifics-guests d-flex ml-3">
+      <div class="guests-and-price d-flex">
         <i class="fas fa-user mt-1 px-2 "></i><p><%= @booking.number_of_guests %></p>
       </div>
       <div class="price-info">
       <div class="booking-specifics-prices d-flex ml-3">
         <i class="fab fa-galactic-republic mt-1 px-2"></i><p><%= planet.price %>/night for <%= days %> nights</p>
       </div>
-      <div class="booking-specifics-prices d-flex ml-3">
-        <p class="px-2">Total price</p>
-        <i class="fab fa-galactic-republic mt-1 px-2"></i><p> <%= planet.price * days %></p>
       </div>
+
     </div>
       <div class="booking-specifics-dates d-flex ml-3">
         <i class="far fa-calendar-alt mt-1 px-2"></i><p>Date of arrival - <%= @booking.start_date %></p>
       </div>
       <div class="booking-specifics-dates d-flex ml-3">
         <i class="far fa-calendar-alt mt-1 px-2"></i><p>Date of departure - <%= @booking.end_date %></p>
+      </div>
+      <div class="booking-specifics-prices d-flex ml-3 pb-0">
+        <p class="px-2">Total price</p>
+        <i class="fab fa-galactic-republic mt-1 px-2"></i><p> <%= planet.price * days %></p>
+        <a href="https://giphy.com/gifs/Z1LYiyIPhnG9O/html5" class="btn btn-primary ml-3 mb-5">Pay now</a>
       </div>
     </div>
   </div>
