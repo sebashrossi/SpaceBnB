@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.planet_id = params[:planet_id]
     @booking.user_id = current_user.id
     if @booking.save
-      redirect_to bookings_path
+      redirect_to booking_path(@booking)
     else
       render :show
     end
