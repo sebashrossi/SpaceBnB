@@ -4,10 +4,10 @@ class PlanetsController < ApplicationController
       @planets = Planet.all
     else
       @params = params[:search]
-      @planets = Planet.all.where('address LIKE :search', search: @params)
+      @planets = Planet.where('name ILIKE :search', search: "%#{@params}%") + Planet.near(@params)
     end
 
-    @markers = @planets.geocoded.map do |planet|
+    @markers = @planets.map do |planet|
       {
         lat: planet.latitude,
         lng: planet.longitude,
