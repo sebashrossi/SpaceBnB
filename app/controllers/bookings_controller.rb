@@ -1,8 +1,11 @@
 class BookingsController < ApplicationController
   def index
+    @bookings = Booking.all
+    @planets = Planet.all
   end
 
   def show
+    @booking = Booking.find(params[:id])
   end
 
   def new
@@ -11,10 +14,12 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.planet_id = params[:planet_id]
+    @booking.user_id = current_user.id
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      render :new
+      render :show
     end
   end
 
@@ -30,6 +35,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :number_of_guests)
   end
 end
