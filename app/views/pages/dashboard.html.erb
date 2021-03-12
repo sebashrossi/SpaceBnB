@@ -84,12 +84,18 @@
                   <i class="fab fa-galactic-republic mt-1 px-2"></i><p> <%= plant.price * days %></p>
                   <i class="fas fa-user mt-1 px-2 "></i><p><%= booking.number_of_guests %></p>
                 </div>
-                <h4><%= booking.status %></h4>
+                <% if Date.parse(booking.start_date) > Date.today %>
+                  <h4><%= booking.status %></h4>
+                <% else %>
+                  <h4>Expired</h4>
+                <% end %>
               </div>
               <div class="actions hide">
-                <% daysleft = (Date.parse(booking.start_date) < Date.today) %>
-                <%= link_to 'Edit', edit_booking_path(booking) %>
-                <%= link_to 'Cancel', booking_path(booking, booking: { status: "Cancelled" }), method: :patch %>
+                <% #daysleft = (Date.parse(booking.start_date) - Date.today) %>
+                <% if (Date.parse(booking.start_date) > Date.today) && (booking.status != 'Cancelled') %>
+                  <%= link_to 'Edit', edit_booking_path(booking) %>
+                  <%= link_to 'Cancel', booking_path(booking, booking: { status: "Cancelled" }), method: :patch %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -102,30 +108,26 @@
             <% if @booked_planets.empty? %>
               <p style="font-size: 15px;">Your planets don't have any bookings yet</p>
             <% else %>
-            <% @booked_planets.each do |planet| %>
-              <div class="card-product" style="margin-bottom: 16px;">
-              <img src="<%= cl_image_path planet.photo.key %>" />
-              <div class="card-product-infos">
-                  <div class="planet-name">
-                    <h2><%= planet.name %></h2>
-                    <% planet.bookings.each do |booking| %>
-                    <p><%= booking.start_date %> | <%= booking.end_date %></p>
-                    <div class="d-flex">
-                      <i class="fas fa-user mt-1 px-2 "></i><p><%= booking.number_of_guests %></p>
+              <% current_user.booking_requests.each do |booking| %>
+                <div class="card-product" style="margin-bottom: 16px;">
+                  <img src="<%= cl_image_path booking.planet.photo.key %>" />
+                  <div class="card-product-infos">
+                    <div class="planet-name">
+                      <h2><%= booking.planet.name %></h2>
+                      <p><%= booking.start_date %> | <%= booking.end_date %></p>
+                      <div class="d-flex">
+                        <i class="fas fa-user mt-1 px-2 "></i><p><%= booking.number_of_guests %></p>
+                      </div>
+                      <h4><%= booking.status %></h4>
                     </div>
-                    <h4><%= booking.status %></h4>
+                    <div class="actions hide">
+                      <% if (booking.status == "Pending") %>
+                      <%= link_to "Accept booking", booking_path(booking, booking: { status: "Accepted" }), method: :patch %>
+                      <%= link_to "Reject booking", booking_path(booking, booking: { status: "Rejected" }), method: :patch %>
+                      <% end %>
+                    </div>
                   </div>
-                  <div class="actions hide">
-                    <% if booking.status != "Accepted" %>
-                    <%= link_to "Accept booking", booking_path(booking, booking: { status: "Accepted" }), method: :patch %>
-                    <% end %>
-                    <% if booking.status != "Rejected" %>
-                    <%= link_to "Reject booking", booking_path(booking, booking: { status: "Rejected" }), method: :patch %>
-                    <% end %>
-                  </div>
-                  <% end %>
                 </div>
-              </div>
               <% end %>
             <% end %>
           </div>
