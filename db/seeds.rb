@@ -11,7 +11,7 @@ require 'open-uri'
 puts 'Destroying all planets'
 Planet.destroy_all
 puts 'Destroying all users'
-User.all.each { |user| puts "Destroying user...#{user.name}"}
+User.all.each { |user| puts "Destroying user...#{user.email}"}
 User.destroy_all
 
 # USER 1 ------- SEOUL
@@ -57,8 +57,8 @@ puts "Creating planet....#{planet4.name}"
 # USER 3 ------ PARIS
 
 user3 = User.create!(email: Faker::Internet.email, password: '123456')
-planet6 = Planet.create!(name: 'Tatooine', description: 'The first and most iconic Star Wars location. For what’s supposed to be the middle of nowhere, people in this series really can’t stop visiting, can they? I guess that’s just the Force at work (or a harried screenwriter, though often they amount to the same thing). The character of Tatooine would shift slightly over the course of the series; I think I prefer the version we got in A New Hope, which mixed relatable teenage boredom (the deleted scenes sell the American Graffiti–in–space vibe) with a real sense of mystery. Like the island from Lost, Tatooine lost its mystique the more we saw of it, as it turned out the planet was also home to a slug who was the most feared crime lord in the Galaxy, a big hole with teeth in it, a bunch of podracers, and, once upon a time, the child who would become Darth Vader. Still, we’ll always have that binary sunset and the Mos Eisley cantina, which told us all we needed to know about this strange new universe.', address: '91  Faubourg Saint Honoré, Paris, France', user_id: user3.id, price: rand(1...1000), guest_limit: rand(1...5000))
-pic = URI.open('https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357')
+planet6 = Planet.create!(name: 'Geonosis', description: 'Geonosis is kept from the bottom spot by a prospering industrial economy and some innovative arena design. But everything else is pretty unpleasant, especially the Geonesians, wretched bug creatures that you almost feel bad for when the Jedi (and eventually the Empire) start slaughtering them en masse.', address: '91  Faubourg Saint Honoré, Paris, France', user_id: user3.id, price: rand(1...1000), guest_limit: rand(1...5000))
+pic = URI.open('https://static.wikia.nocookie.net/starwars/images/6/6d/Geonosis_AotC.png/revision/latest/scale-to-width-down/1000?cb=20121231120327')
 planet6.photo.attach(io: pic, filename: 'planet-image.jpg', content_type: 'image/jpg')
 puts "Creating planet....#{planet6.name}"
 
