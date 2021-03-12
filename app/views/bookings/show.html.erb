@@ -3,7 +3,7 @@
 <% days = (Date.parse(@booking.end_date) - Date.parse(@booking.start_date)).to_f.truncate() %>
 <div class="banner_show banner-down" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("<%= cl_image_path planet.photo.key%>");'>
   <div class="container">
-    <h1>Your booking request to <%= planet.name %> for has been submited!</h1>
+    <h1>Booking details for <%= planet.name %></h1>
   </div>
 </div>
 
@@ -28,6 +28,20 @@
       <div class="booking-specifics-dates d-flex ml-3">
         <i class="far fa-calendar-alt mt-1 px-2"></i><p>Date of departure - <%= @booking.end_date %></p>
       </div>
+      <div class="booking-specifics-dates d-flex ml-3">
+        <% if @booking.status == 'Pending' %>
+          <i class="fas fa-spinner mt-1 px-2"></i><p><%= @booking.status %></p>
+        <% end %>
+        <% if @booking.status == 'Cancelled' %>
+          <i class="fas fa-times mt-1 px-2"></i><p><%= @booking.status %></p>
+        <% end %>
+        <% if @booking.status == 'Rejected' %>
+          <i class="fas fa-times mt-1 px-2"></i><p><%= @booking.status %></p>
+        <% end %>
+        <% if @booking.status == 'Accepted' %>
+          <i class="fas fa-check mt-1 px-2"></i><p><%= @booking.status %></p>
+        <% end %>
+      </div>
       <div class="booking-specifics-prices d-flex ml-3 pb-0">
         <p class="px-2">Total price</p>
         <i class="fab fa-galactic-republic mt-1 px-2"></i><p> <%= planet.price * days %></p>
@@ -40,15 +54,10 @@
 </div>
 
 <!-- Modal -->
-<!-- Trigger/Open The Modal -->
-
-<!-- The Modal -->
 <div id="myModal" class="modal">
-  <!-- Modal content -->
   <div class="modal-content">
     <img src="http://i0.wp.com/www.bradwarthen.com/wp-content/uploads/2019/12/trap.gif" alt="">
   </div>
-
 </div>
 
 <%# number of guests, date of arrival, date of departure, calculate price based on number of days %>
