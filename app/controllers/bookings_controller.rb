@@ -30,8 +30,15 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    redirect_to dashboard_path
+    if @booking.update(booking_params) && params[:booking][:status].present?
+      redirect_to dashboard_path
+    elsif @booking.update(booking_params)
+      @booking.status = 'Pending'
+      @booking.save
+      redirect_to dashboard_path
+    else
+      render :edit
+    end
   end
 
   def destroy
