@@ -1,4 +1,5 @@
-<div class="edit-booking-main justify-content-center">
+<%= render '/layouts/navbar' %>
+<div class="container justify-content-center edit-main">
 <%= simple_form_for(@planet) do |f| %>
  <%= f.input :name %>
   <%= f.input :description %>

@@ -55,7 +55,7 @@
                 <h2><%= planet.name %></h2>
               </div>
               <div class="actions hide">
-                <%= link_to 'Edit', edit_planet_path(planet.id) %>
+                <%= link_to 'Edit', edit_planet_path(planet.id) %>&nbsp;|&nbsp;
                 <%= link_to 'Delete', planet_path(planet.id), method: :delete %>
               </div>
             </div>
@@ -85,21 +85,20 @@
                   <i class="fab fa-galactic-republic mt-1 px-2"></i><p> <%= plant.price * days %></p>
                   <i class="fas fa-user mt-1 px-2 "></i><p><%= booking.number_of_guests %></p>
                 </div>
-                <% if Date.parse(booking.start_date) > Date.today %>
-                  <h4><%= booking.status %></h4>
-                <% else %>
-                  <h4>Expired</h4>
-                <% end %>
               </div>
               <div class="actions hide">
                 <% #daysleft = (Date.parse(booking.start_date) - Date.today) %>
                 <% if (Date.parse(booking.start_date) > Date.today) && (booking.status != 'Cancelled') %>
-                  <%= link_to 'Edit', edit_booking_path(booking) %>
+                  <%= link_to 'Edit', edit_booking_path(booking) %>&nbsp;|&nbsp;
                   <%= link_to 'Cancel', booking_path(booking, booking: { status: "Cancelled" }), method: :patch %>
                 <% end %>
               </div>
               </div>
-              <h4 class="pr-3 hide statuses"><%= booking.status %></h4>
+              <h4 class="pr-3 hide statuses"><% if Date.parse(booking.start_date) > Date.today %>
+                  <%= booking.status %>
+                <% else %>
+                  Expired
+                <% end %></h4>
             </div>
           </div>
           <% end %>
@@ -112,25 +111,36 @@
               <p style="font-size: 15px;">Your planets don't have any bookings yet</p>
             <% else %>
               <% current_user.booking_requests.each do |booking| %>
-                <div class="card-product" style="margin-bottom: 16px;">
-                  <img src="<%= cl_image_path booking.planet.photo.key %>" />
-                  <div class="card-product-infos">
-                    <div class="planet-name">
-                      <h2><%= booking.planet.name %></h2>
-                      <p><%= booking.start_date %> | <%= booking.end_date %></p>
-                      <div class="d-flex">
-                        <i class="fas fa-user mt-1 px-2 "></i><p><%= booking.number_of_guests %></p>
-                      </div>
-                      <h4><%= booking.status %></h4>
-                    </div>
-                    <div class="actions hide">
-                      <% if (booking.status == "Pending") %>
-                      <%= link_to "Accept booking", booking_path(booking, booking: { status: "Accepted" }), method: :patch %>
+              <% plant = Planet.find(booking.planet_id) %>
+          <% days = (Date.parse(booking.end_date) - Date.parse(booking.start_date)).to_f.truncate() %>
+          <div class="card-product" style="margin-bottom: 16px;">
+            <%= link_to booking_path(booking) do %>
+            <img src="<%= cl_image_path booking.planet.photo.key %>" />
+            <% end %>
+            <div class="card-product-infos d-flex justify-content-between align-items-center">
+            <div>
+              <div class="planet-name">
+                <h2><%= booking.planet.name %></h2>
+                <p><%= booking.start_date %> | <%= booking.end_date %></p>
+                <div class="d-flex">
+                  <i class="fab fa-galactic-republic mt-1 px-2"></i><p> <%= plant.price * days %></p>
+                  <i class="fas fa-user mt-1 px-2 "></i><p><%= booking.number_of_guests %></p>
+                </div>
+              </div>
+              <div class="actions hide">
+                <% if (booking.status == "Pending") %>
+                      <%= link_to "Accept booking", booking_path(booking, booking: { status: "Accepted" }), method: :patch %>&nbsp;|&nbsp;
                       <%= link_to "Reject booking", booking_path(booking, booking: { status: "Rejected" }), method: :patch %>
                       <% end %>
-                    </div>
-                  </div>
-                </div>
+              </div>
+              </div>
+              <h4 class="pr-3 hide statuses"><% if Date.parse(booking.start_date) > Date.today %>
+                  <%= booking.status %>
+                <% else %>
+                  Expired
+                <% end %></h4>
+            </div>
+          </div>
               <% end %>
             <% end %>
           </div>
