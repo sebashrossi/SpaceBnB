@@ -23,7 +23,7 @@
         </div>
 
         <div class="planet-owner px-3 py-2">
-          <h3> <%= User.find(@planet.user_id).email %> </h3>
+          <h3> <%= User.find(@planet.user_id).first_name %> <%= User.find(@planet.user_id).last_name %></h3>
         </div>
       </div>
         <div class="d-flex mx-2 mt-2">
