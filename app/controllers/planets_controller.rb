@@ -35,6 +35,10 @@ class PlanetsController < ApplicationController
     end
   end
 
+  def edit
+    @planet = Planet.find(params[:id])
+  end
+
   def update
     @planet = Planet.find(params[:id])
     @planet.update(planet_params)
@@ -43,7 +47,7 @@ class PlanetsController < ApplicationController
 
   def destroy
     @planet = Planet.find(params[:id])
-    @planet.destroy
+    redirect_to dashboard_path if @planet.destroy
   end
 
   private

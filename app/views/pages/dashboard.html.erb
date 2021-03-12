@@ -10,7 +10,7 @@
             <div class="user-image">
               <img src="https://www.pinclipart.com/picdir/big/54-545588_file-stormtrooperhelmeticon-star-wars-star-wars-stormtrooper-dessin.png" class="img-radius" alt="User-Profile-Image">
             </div>
-            <h6 class="f-w-200 m-t-25 m-b-10">Name LName</h6>
+            <h6 class="f-w-200 m-t-25 m-b-10"><%= current_user.first_name %> <%= current_user.last_name %></h6>
             <hr>
             <p class="m-t-15" style="color: white;"><%= current_user.email %></p>
             <div class="bg-c-pink counter-block p-20" style="border-radius: 4px; margin-top: 27px;">
@@ -55,8 +55,8 @@
                 <h2><%= planet.name %></h2>
               </div>
               <div class="actions hide">
-                <a href="">Edit</a>
-                <a href="">Delete</a>
+                <%= link_to 'Edit', edit_planet_path(planet.id) %>
+                <%= link_to 'Delete', planet_path(planet.id), method: :delete %>
               </div>
             </div>
           </div>
@@ -76,7 +76,8 @@
             <%= link_to booking_path(booking) do %>
             <img src="<%= cl_image_path booking.planet.photo.key %>" />
             <% end %>
-            <div class="card-product-infos">
+            <div class="card-product-infos d-flex justify-content-between align-items-center">
+            <div>
               <div class="planet-name">
                 <h2><%= booking.planet.name %></h2>
                 <p><%= booking.start_date %> | <%= booking.end_date %></p>
@@ -97,6 +98,8 @@
                   <%= link_to 'Cancel', booking_path(booking, booking: { status: "Cancelled" }), method: :patch %>
                 <% end %>
               </div>
+              </div>
+              <h4 class="pr-3 hide statuses"><%= booking.status %></h4>
             </div>
           </div>
           <% end %>
