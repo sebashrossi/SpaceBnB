@@ -27,6 +27,8 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { hover } from '../plugins/hovereffect';
 import { initFlatpickr } from "../plugins/flatpickr";
 import { modal } from '../plugins/modal';
+import { previewImageOnFileSelect } from '../components/photo_preview';
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -37,5 +39,6 @@ document.addEventListener('turbolinks:load', () => {
   hover();
   initFlatpickr();
   modal();
+  previewImageOnFileSelect();
 });
 

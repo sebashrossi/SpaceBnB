@@ -5,7 +5,8 @@
   <%= f.input :address , label: "Enter location of the portal" %>
   <%= f.input :price, label: "Price in Galactic Standard Credits per night" %>
   <%= f.input :guest_limit %>
-  <%= f.input :photo, input_html: { class: 'd-none'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+  <%= f.input :photo, input_html: { class: 'd-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+  <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
   <%= f.button :submit, class: 'btn btn-lg btn-primary btn-block mt-4' %>
 <% end %>
 </div>
