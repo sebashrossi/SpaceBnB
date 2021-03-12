@@ -87,8 +87,9 @@
                 <h4><%= booking.status %></h4>
               </div>
               <div class="actions hide">
+                <% daysleft = (Date.parse(booking.start_date) < Date.today) %>
                 <%= link_to 'Edit', edit_booking_path(booking) %>
-                <%= link_to 'Delete', booking_path(booking), method: :delete %>
+                <%= link_to 'Cancel', booking_path(booking, booking: { status: "Cancelled" }), method: :patch %>
               </div>
             </div>
           </div>
@@ -98,28 +99,34 @@
           <% end %>
           <div>
             <h4 style="margin-top: 70px; margin-bottom: 15px;">Booking requests: </h4>
-            <% @planets.each do |planet| %>
-            <% if planet.bookings.count > 0 %>
-            <div class="card-product" style="margin-bottom: 16px;">
+            <% if @booked_planets.empty? %>
+              <p style="font-size: 15px;">Your planets don't have any bookings yet</p>
+            <% else %>
+            <% @booked_planets.each do |planet| %>
+              <div class="card-product" style="margin-bottom: 16px;">
               <img src="<%= cl_image_path planet.photo.key %>" />
               <div class="card-product-infos">
-                <div class="planet-name">
-                  <h2><%= planet.name %></h2>
-                  <p><% planet.bookings.each do |booking| %><%= booking.start_date %><% end %> | <% planet.bookings.each do |booking| %> <%= booking.end_date %> <% end %></p>
-                  <div class="d-flex">
-                    <i class="fas fa-user mt-1 px-2 "></i><p><% planet.bookings.each do |booking| %><%= booking.number_of_guests %><% end %></p>
+                  <div class="planet-name">
+                    <h2><%= planet.name %></h2>
+                    <% planet.bookings.each do |booking| %>
+                    <p><%= booking.start_date %> | <%= booking.end_date %></p>
+                    <div class="d-flex">
+                      <i class="fas fa-user mt-1 px-2 "></i><p><%= booking.number_of_guests %></p>
+                    </div>
+                    <h4><%= booking.status %></h4>
                   </div>
-                  <h4><% planet.bookings.each do |booking| %><%= booking.status %><% end %></h4>
-                </div>
-                <div class="actions hide">
-                  <a href="#">Accept booking</a>
-                  <a href="#">Reject booking</a>
+                  <div class="actions hide">
+                    <% if booking.status != "Accepted" %>
+                    <%= link_to "Accept booking", booking_path(booking, booking: { status: "Accepted" }), method: :patch %>
+                    <% end %>
+                    <% if booking.status != "Rejected" %>
+                    <%= link_to "Reject booking", booking_path(booking, booking: { status: "Rejected" }), method: :patch %>
+                    <% end %>
+                  </div>
+                  <% end %>
                 </div>
               </div>
-            </div>
-            <% else %>
-              <p style="font-size: 15px;">Your planets don't have any bookings yet</p>
-            <% end %>
+              <% end %>
             <% end %>
           </div>
         </div>

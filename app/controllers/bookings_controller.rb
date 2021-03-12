@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.planet_id = params[:planet_id]
     @booking.user_id = current_user.id
+    @booking.status = 'Pending'
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -42,6 +43,10 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
+    if params[:booking][:status].present?
+    params.require(:booking).permit(:status)
+    else
     params.require(:booking).permit(:start_date, :end_date, :number_of_guests)
+    end
   end
 end
