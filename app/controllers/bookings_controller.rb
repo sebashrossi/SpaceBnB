@@ -44,9 +44,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     if params[:booking][:status].present?
-    params.require(:booking).permit(:status)
+      params.require(:booking).permit(:status)
     else
-    params.require(:booking).permit(:start_date, :end_date, :number_of_guests)
+      params.require(:booking).permit(:start_date, :end_date, :number_of_guests)
     end
   end
 end
