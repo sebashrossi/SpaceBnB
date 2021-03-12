@@ -26,7 +26,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { hover } from '../plugins/hovereffect';
 import { initFlatpickr } from "../plugins/flatpickr";
-
+import { modal } from '../plugins/modal';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -36,5 +36,6 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   hover();
   initFlatpickr();
+  modal();
 });
 

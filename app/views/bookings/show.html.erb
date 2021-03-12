@@ -31,7 +31,7 @@
       <div class="booking-specifics-prices d-flex ml-3 pb-0">
         <p class="px-2">Total price</p>
         <i class="fab fa-galactic-republic mt-1 px-2"></i><p> <%= planet.price * days %></p>
-        <a href="https://giphy.com/gifs/Z1LYiyIPhnG9O/html5" class="btn btn-primary ml-3 mb-5">Pay now</a>
+        <a type="button" class="btn btn-primary ml-3 mb-5" id="myBtn">Pay Now</a>
       </div>
     </div>
     <%= link_to 'Manage my bookings', dashboard_path %>
@@ -39,6 +39,16 @@
   </div>
 </div>
 
+<!-- Modal -->
+<!-- Trigger/Open The Modal -->
 
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <img src="http://i0.wp.com/www.bradwarthen.com/wp-content/uploads/2019/12/trap.gif" alt="">
+  </div>
+
+</div>
 
 <%# number of guests, date of arrival, date of departure, calculate price based on number of days %>
