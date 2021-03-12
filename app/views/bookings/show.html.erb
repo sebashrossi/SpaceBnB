@@ -33,9 +33,9 @@
         <i class="fab fa-galactic-republic mt-1 px-2"></i><p> <%= planet.price * days %></p>
         <a type="button" class="btn btn-primary ml-3 mb-5" id="myBtn">Pay Now</a>
       </div>
+      <%= link_to 'Manage my bookings', dashboard_path, class: "booking-linkss mr-3" %>
+      <%= link_to 'Make another booking', planets_path, class: "booking-linkss ml-3" %>
     </div>
-    <%= link_to 'Manage my bookings', dashboard_path %>
-    <%= link_to 'Make another booking', planets_path %>
   </div>
 </div>
 

@@ -267,3 +267,19 @@ select:focus {
       margin-left: 100%; }
     .tabs .tab-2:last-child [type="radio"]:checked + div {
       margin-left: -100%; }
+
+    .booking-links {
+        color: white;
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+        background-color: $cool-pink;
+        padding: 8px 8px;
+        border-radius: 4px;
+        &:hover {
+          color: $cool-pink;
+          text-decoration: none;
+          background-color: white;
+        }
+    }
+
+    

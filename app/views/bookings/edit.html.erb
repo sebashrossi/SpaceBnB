@@ -1,6 +1,8 @@
+<div class="edit-booking-main justify-content-center">
 <%= simple_form_for([@planet, @booking]) do |f| %>
   <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
   <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
   <%= f.input :number_of_guests %>
   <%= f.button :submit, class: 'btn btn-lg btn-primary btn-block ' %>
 <% end %>
+</div>

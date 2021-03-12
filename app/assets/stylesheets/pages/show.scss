@@ -26,6 +26,15 @@ $form_percentage: 25%;
 
 }
 
+.booking-linkss {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    color: $cool-pink;
+    text-decoration: none;
+  }
+}
 
 // MODAL //
 
