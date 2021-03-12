@@ -6,5 +6,6 @@ class PagesController < ApplicationController
   def dashboard
     @planets = current_user.planets
     @bookings = current_user.bookings
+    @booked_planets = @planets.reject { |planet| planet.bookings.empty? }
   end
 end
